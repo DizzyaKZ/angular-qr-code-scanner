@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 
 @Component({
@@ -9,7 +9,7 @@ import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiedi
   styleUrls: ['./sms-qr-code.component.scss'],
 })
 export class SmsQrCodeComponent implements OnInit, OnDestroy {
-  smsDetailsFormGroup: FormGroup | undefined;
+  smsDetailsFormGroup: UntypedFormGroup | undefined;
   isSubmitted = false;
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
@@ -18,7 +18,7 @@ export class SmsQrCodeComponent implements OnInit, OnDestroy {
   private _downloadQrCodeImageURLs: string[] = [];
 
   constructor(
-    private _formBuilder: FormBuilder,
+    private _formBuilder: UntypedFormBuilder,
     @Inject(DOCUMENT) private _document: Document,
   ) { }
 
